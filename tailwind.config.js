@@ -6,6 +6,16 @@ module.exports = {
   ],
   theme: {
     extend: {},
+    flex: {
+      '3': '0 0 20%',
+      'mobile': '0 0 33%'
+    },
+    fontFamily: {
+      'custom': ['Irish Grover'],
+      'custom2': ['Work Sans'],
+    }
   },
-  plugins: [],
+  plugins: [
+    require('tw-elements/dist/plugin')
+  ],
 }

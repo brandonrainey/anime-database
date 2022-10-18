@@ -1,84 +1,187 @@
 import type { NextPage } from 'next'
 import Head from 'next/head'
 import Image from 'next/image'
+import React, { useState, useEffect, useRef } from "react";
+import Axios from "axios";
+import Header from '../components/Header';
+import MainContent from '../components/MainContent';
+import Pagination from '../components/Pagination'
+
+
 
 const Home: NextPage = () => {
+
+  const [anime, setAnime] = useState([]);
+  const [search, setSearch] = useState("");
+  const [animeList, setAnimeList] = useState([]);
+  const [loading, setLoading] = useState(false);
+  const [displayTitle, setDisplayTitle] = useState("Top Anime");
+  const [dropValue, setDropValue] = useState("");
+  const [sort, setSort] = useState("");
+  const [sortValue, setSortValue] = useState("");
+  const [acendingValue, setAcendingValue] = useState("");
+  const [acending, setAcending] = useState("");
+  const [page, setPage] = useState(1);
+  const topRef = useRef<HTMLDivElement>(null);
+  const [animeWatchlist, setAnimeWatchlist] = useState<any | null>(null)
+  const [schedules, setSchedules] = useState<any | null>([])
+
+  const scrollToTop = () => {
+    topRef.current?.scrollIntoView({ block: "start" });
+  };
+
+  const getTopAnime = async () => {
+    setLoading(true);
+
+    setDisplayTitle("Top Anime");
+    setSortValue("Order by...");
+    await Axios.get(`https://api.jikan.moe/v4/top/anime?page=${page}&bypopularity`)
+      .then((response) => {
+        
+        setAnimeList(response.data.data);
+        setLoading(false);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
+
+  const getSeasonalAnime = async () => {
+    setAnimeList([]);
+    setLoading(true);
+    setDisplayTitle("Seasonal Anime");
+    setSortValue("Order by...");
+    await Axios.get(`https://api.jikan.moe/v4/seasons/now?page=${page}`).then(
+      (response) => {
+        
+        setAnimeList(response.data.data);
+        setLoading(false);
+      }
+    );
+  };
+
+  const getUpcomingAnime = async () => {
+    setAnimeList([]);
+    setLoading(true);
+    setDisplayTitle("Upcoming Anime");
+    setSortValue("Order by...");
+    await Axios.get(`https://api.jikan.moe/v4/seasons/upcoming?page=${page}`).then(
+      (response) => {
+        setAnimeList(response.data.data);
+        setLoading(false);
+      }
+    );
+  };
+
+  const HandleSearch = (e: any) => {
+    e.preventDefault();
+
+    FetchAnime(search);
+  };
+
+  const FetchAnime = async (query?: any) => {
+    setAnimeList([]);
+    setDropValue(search);
+    setLoading(true);
+    setSortValue("Order by...");
+    await Axios.get(
+      `https://api.jikan.moe/v4/anime?q=${query}&order_by=popularity&sort=asc&limit=50&page=${page}&sfw`
+    )
+      .then((response) => {
+        setAnimeList(response.data.data);
+        setDisplayTitle(`Search Results`);
+        setLoading(false);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
+
+  const getAnimeSchedules = () => {
+    animeWatchlist.forEach((item: any) => {
+      console.log('yo')
+      animeList.map((item2: any) => {
+        if (item2.mal_id == item[1]) {
+          
+          // setSchedules((schedules: any) => [...schedules, item2.broadcast.day])
+        }
+      })
+    })
+
+
+    
+  }
+
+  useEffect(() => {
+    if (displayTitle === "Top Anime") {
+      getTopAnime();
+      return;
+    }
+    if (search) {
+      FetchAnime();
+    }
+    
+  }, [page]);
+
+  useEffect(() => {
+    setPage(1);
+  }, [search]);
+
+  useEffect(() => {
+    if (typeof window != undefined) {
+      setAnimeWatchlist([Object.entries(localStorage)])
+      
+    }
+
+    if (animeWatchlist) {
+      getAnimeSchedules()
+    }
+    
+  }, [])
+
+  
+
+  
+  
+
   return (
-    <div className="flex min-h-screen flex-col items-center justify-center py-2">
-      <Head>
-        <title>Create Next App</title>
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
-
-      <main className="flex w-full flex-1 flex-col items-center justify-center px-20 text-center">
-        <h1 className="text-6xl font-bold">
-          Welcome to{' '}
-          <a className="text-blue-600" href="https://nextjs.org">
-            Next.js!
-          </a>
-        </h1>
-
-        <p className="mt-3 text-2xl">
-          Get started by editing{' '}
-          <code className="rounded-md bg-gray-100 p-3 font-mono text-lg">
-            pages/index.tsx
-          </code>
-        </p>
-
-        <div className="mt-6 flex max-w-4xl flex-wrap items-center justify-around sm:w-full">
-          <a
-            href="https://nextjs.org/docs"
-            className="mt-6 w-96 rounded-xl border p-6 text-left hover:text-blue-600 focus:text-blue-600"
-          >
-            <h3 className="text-2xl font-bold">Documentation &rarr;</h3>
-            <p className="mt-4 text-xl">
-              Find in-depth information about Next.js features and its API.
-            </p>
-          </a>
-
-          <a
-            href="https://nextjs.org/learn"
-            className="mt-6 w-96 rounded-xl border p-6 text-left hover:text-blue-600 focus:text-blue-600"
-          >
-            <h3 className="text-2xl font-bold">Learn &rarr;</h3>
-            <p className="mt-4 text-xl">
-              Learn about Next.js in an interactive course with quizzes!
-            </p>
-          </a>
-
-          <a
-            href="https://github.com/vercel/next.js/tree/canary/examples"
-            className="mt-6 w-96 rounded-xl border p-6 text-left hover:text-blue-600 focus:text-blue-600"
-          >
-            <h3 className="text-2xl font-bold">Examples &rarr;</h3>
-            <p className="mt-4 text-xl">
-              Discover and deploy boilerplate example Next.js projects.
-            </p>
-          </a>
-
-          <a
-            href="https://vercel.com/import?filter=next.js&utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            className="mt-6 w-96 rounded-xl border p-6 text-left hover:text-blue-600 focus:text-blue-600"
-          >
-            <h3 className="text-2xl font-bold">Deploy &rarr;</h3>
-            <p className="mt-4 text-xl">
-              Instantly deploy your Next.js site to a public URL with Vercel.
-            </p>
-          </a>
-        </div>
-      </main>
-
-      <footer className="flex h-24 w-full items-center justify-center border-t">
-        <a
-          className="flex items-center justify-center gap-2"
-          href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Powered by{' '}
-          <Image src="/vercel.svg" alt="Vercel Logo" width={72} height={16} />
-        </a>
-      </footer>
+    <div ref={topRef} className="bg-gray-200">
+      <Header />
+      <MainContent 
+      anime={anime}
+      setAnime={setAnime}
+      search={search}
+      setSearch={setSearch}
+      HandleSearch={HandleSearch}
+      animeList={animeList}
+      loading={loading}
+      setLoading={setLoading}
+      displayTitle={displayTitle}
+      setDisplayTitle={setDisplayTitle}
+      getTopAnime={getTopAnime}
+      dropValue={dropValue}
+      setDropValue={setDropValue}
+      getSeasonalAnime={getSeasonalAnime}
+      getUpcomingAnime={getUpcomingAnime}
+      sort={sort}
+      setSort={setSort}
+      sortValue={sortValue}
+      setSortValue={setSortValue}
+      acending={acending}
+      setAcending={setAcending}
+      acendingValue={acendingValue}
+      setAcendingValue={setAcendingValue}
+      setPage={setPage}
+      animeWatchlist={animeWatchlist}
+      setAnimeWatchlist={setAnimeWatchlist}
+      />
+      <Pagination
+        page={page}
+        setPage={setPage}
+        animeList={animeList}
+        scrollToTop={scrollToTop}
+        
+      />
     </div>
   )
 }
