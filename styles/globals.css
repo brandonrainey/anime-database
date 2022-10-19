@@ -195,6 +195,29 @@ select:focus {
   font-family: "Rowdies", Sans-Serif;
 }
 
+.scrollbar::-webkit-scrollbar {
+  width: 8px;
+  height: 12px;
+  margin-right: 2px;
+}
+
+.scrollbar::-webkit-scrollbar-track {
+  border-radius: 100vh;
+  background: #3456b4;
+}
+
+.scrollbar::-webkit-scrollbar-thumb {
+  background: #e0cbcb;
+  border-radius: 100vh;
+  
+}
+
+.scrollbar::-webkit-scrollbar-thumb:hover {
+  background: #c0a0b9;
+}
+
+
+
 @media (max-width: 500px) {
   html,
   body {

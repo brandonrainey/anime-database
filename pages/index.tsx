@@ -1,186 +1,161 @@
 import type { NextPage } from 'next'
 import Head from 'next/head'
 import Image from 'next/image'
-import React, { useState, useEffect, useRef } from "react";
-import Axios from "axios";
-import Header from '../components/Header';
-import MainContent from '../components/MainContent';
+import React, { useState, useEffect, useRef } from 'react'
+import Axios from 'axios'
+import Header from '../components/Header'
+import MainContent from '../components/MainContent'
 import Pagination from '../components/Pagination'
 
-
-
 const Home: NextPage = () => {
-
-  const [anime, setAnime] = useState([]);
-  const [search, setSearch] = useState("");
-  const [animeList, setAnimeList] = useState([]);
-  const [loading, setLoading] = useState(false);
-  const [displayTitle, setDisplayTitle] = useState("Top Anime");
-  const [dropValue, setDropValue] = useState("");
-  const [sort, setSort] = useState("");
-  const [sortValue, setSortValue] = useState("");
-  const [acendingValue, setAcendingValue] = useState("");
-  const [acending, setAcending] = useState("");
-  const [page, setPage] = useState(1);
-  const topRef = useRef<HTMLDivElement>(null);
+  const [anime, setAnime] = useState([])
+  const [search, setSearch] = useState('')
+  const [animeList, setAnimeList] = useState([])
+  const [loading, setLoading] = useState(false)
+  const [displayTitle, setDisplayTitle] = useState('Top Anime')
+  const [dropValue, setDropValue] = useState('')
+  const [sort, setSort] = useState('')
+  const [sortValue, setSortValue] = useState('')
+  const [acendingValue, setAcendingValue] = useState('')
+  const [acending, setAcending] = useState('')
+  const [page, setPage] = useState(1)
+  const topRef = useRef<HTMLDivElement>(null)
   const [animeWatchlist, setAnimeWatchlist] = useState<any | null>(null)
   const [schedules, setSchedules] = useState<any | null>([])
+  const [watching, setWatching] = useState<boolean | null>(null)
 
   const scrollToTop = () => {
-    topRef.current?.scrollIntoView({ block: "start" });
-  };
+    topRef.current?.scrollIntoView({ block: 'start' })
+  }
 
   const getTopAnime = async () => {
-    setLoading(true);
+    setLoading(true)
 
-    setDisplayTitle("Top Anime");
-    setSortValue("Order by...");
-    await Axios.get(`https://api.jikan.moe/v4/top/anime?page=${page}&bypopularity`)
+    setDisplayTitle('Top Anime')
+    setSortValue('Order by...')
+    await Axios.get(
+      `https://api.jikan.moe/v4/top/anime?page=${page}&bypopularity`
+    )
       .then((response) => {
-        
-        setAnimeList(response.data.data);
-        setLoading(false);
+        setAnimeList(response.data.data)
+        setLoading(false)
       })
       .catch((error) => {
-        console.log(error);
-      });
-  };
+        console.log(error)
+      })
+  }
 
   const getSeasonalAnime = async () => {
-    setAnimeList([]);
-    setLoading(true);
-    setDisplayTitle("Seasonal Anime");
-    setSortValue("Order by...");
+    setAnimeList([])
+    setLoading(true)
+    setDisplayTitle('Seasonal Anime')
+    setSortValue('Order by...')
     await Axios.get(`https://api.jikan.moe/v4/seasons/now?page=${page}`).then(
       (response) => {
-        
-        setAnimeList(response.data.data);
-        setLoading(false);
+        setAnimeList(response.data.data)
+        setLoading(false)
       }
-    );
-  };
+    )
+  }
 
   const getUpcomingAnime = async () => {
-    setAnimeList([]);
-    setLoading(true);
-    setDisplayTitle("Upcoming Anime");
-    setSortValue("Order by...");
-    await Axios.get(`https://api.jikan.moe/v4/seasons/upcoming?page=${page}`).then(
-      (response) => {
-        setAnimeList(response.data.data);
-        setLoading(false);
-      }
-    );
-  };
+    setAnimeList([])
+    setLoading(true)
+    setDisplayTitle('Upcoming Anime')
+    setSortValue('Order by...')
+    await Axios.get(
+      `https://api.jikan.moe/v4/seasons/upcoming?page=${page}`
+    ).then((response) => {
+      setAnimeList(response.data.data)
+      setLoading(false)
+    })
+  }
 
   const HandleSearch = (e: any) => {
-    e.preventDefault();
+    e.preventDefault()
 
-    FetchAnime(search);
-  };
+    FetchAnime(search)
+  }
 
   const FetchAnime = async (query?: any) => {
-    setAnimeList([]);
-    setDropValue(search);
-    setLoading(true);
-    setSortValue("Order by...");
+    setAnimeList([])
+    setDropValue(search)
+    setLoading(true)
+    setSortValue('Order by...')
     await Axios.get(
       `https://api.jikan.moe/v4/anime?q=${query}&order_by=popularity&sort=asc&limit=50&page=${page}&sfw`
     )
       .then((response) => {
-        setAnimeList(response.data.data);
-        setDisplayTitle(`Search Results`);
-        setLoading(false);
+        setAnimeList(response.data.data)
+        setDisplayTitle(`Search Results`)
+        setLoading(false)
       })
       .catch((error) => {
-        console.log(error);
-      });
-  };
-
-  const getAnimeSchedules = () => {
-    animeWatchlist.forEach((item: any) => {
-      console.log('yo')
-      animeList.map((item2: any) => {
-        if (item2.mal_id == item[1]) {
-          
-          // setSchedules((schedules: any) => [...schedules, item2.broadcast.day])
-        }
+        console.log(error)
       })
-    })
-
-
-    
   }
 
-  useEffect(() => {
-    if (displayTitle === "Top Anime") {
-      getTopAnime();
-      return;
-    }
-    if (search) {
-      FetchAnime();
-    }
-    
-  }, [page]);
+
 
   useEffect(() => {
-    setPage(1);
-  }, [search]);
+    if (displayTitle === 'Top Anime') {
+      getTopAnime()
+      return
+    }
+    if (search) {
+      FetchAnime()
+    }
+  }, [page])
+
+  useEffect(() => {
+    setPage(1)
+  }, [search])
 
   useEffect(() => {
     if (typeof window != undefined) {
       setAnimeWatchlist([Object.entries(localStorage)])
-      
     }
-
-    if (animeWatchlist) {
-      getAnimeSchedules()
-    }
-    
-  }, [])
-
-  
-
-  
-  
+    console.log('runs')
+  }, [watching])
 
   return (
     <div ref={topRef} className="bg-gray-200">
-      <Header />
-      <MainContent 
-      anime={anime}
-      setAnime={setAnime}
-      search={search}
-      setSearch={setSearch}
-      HandleSearch={HandleSearch}
-      animeList={animeList}
-      loading={loading}
-      setLoading={setLoading}
-      displayTitle={displayTitle}
-      setDisplayTitle={setDisplayTitle}
-      getTopAnime={getTopAnime}
-      dropValue={dropValue}
-      setDropValue={setDropValue}
-      getSeasonalAnime={getSeasonalAnime}
-      getUpcomingAnime={getUpcomingAnime}
-      sort={sort}
-      setSort={setSort}
-      sortValue={sortValue}
-      setSortValue={setSortValue}
-      acending={acending}
-      setAcending={setAcending}
-      acendingValue={acendingValue}
-      setAcendingValue={setAcendingValue}
-      setPage={setPage}
-      animeWatchlist={animeWatchlist}
-      setAnimeWatchlist={setAnimeWatchlist}
+      <Header animeWatchlist={animeWatchlist} />
+      <MainContent
+        anime={anime}
+        setAnime={setAnime}
+        search={search}
+        setSearch={setSearch}
+        HandleSearch={HandleSearch}
+        animeList={animeList}
+        loading={loading}
+        setLoading={setLoading}
+        displayTitle={displayTitle}
+        setDisplayTitle={setDisplayTitle}
+        getTopAnime={getTopAnime}
+        dropValue={dropValue}
+        setDropValue={setDropValue}
+        getSeasonalAnime={getSeasonalAnime}
+        getUpcomingAnime={getUpcomingAnime}
+        sort={sort}
+        setSort={setSort}
+        sortValue={sortValue}
+        setSortValue={setSortValue}
+        acending={acending}
+        setAcending={setAcending}
+        acendingValue={acendingValue}
+        setAcendingValue={setAcendingValue}
+        setPage={setPage}
+        animeWatchlist={animeWatchlist}
+        setAnimeWatchlist={setAnimeWatchlist}
+        watching={watching}
+        setWatching={setWatching}
       />
       <Pagination
         page={page}
         setPage={setPage}
         animeList={animeList}
         scrollToTop={scrollToTop}
-        
       />
     </div>
   )

@@ -1,207 +1,211 @@
-import React, { useEffect, useState } from "react";
-import AnimeCard from "./AnimeCard";
-import LoadingScreen from "./LoadingScreen";
+import React, { useEffect, useState } from 'react'
+import AnimeCard from './AnimeCard'
+import LoadingScreen from './LoadingScreen'
 
 type MainProps = {
-      anime: any,
-      setAnime: any,
-      search: any,
-      setSearch: any,
-      HandleSearch: any,
-      animeList: any,
-      loading: any,
-      setLoading: any,
-      displayTitle: any,
-      setDisplayTitle: any,
-      getTopAnime: any,
-      dropValue: any,
-      setDropValue: any,
-      getSeasonalAnime: any,
-      getUpcomingAnime: any,
-      sort: any,
-      setSort: any,
-      sortValue: any,
-      setSortValue: any,
-      acending: any,
-      setAcending: any,
-      acendingValue: any,
-      setAcendingValue: any,
-      setPage: any,
-      animeWatchlist: any,
-      setAnimeWatchlist: any,
+  anime: any
+  setAnime: any
+  search: any
+  setSearch: any
+  HandleSearch: any
+  animeList: any
+  loading: any
+  setLoading: any
+  displayTitle: any
+  setDisplayTitle: any
+  getTopAnime: any
+  dropValue: any
+  setDropValue: any
+  getSeasonalAnime: any
+  getUpcomingAnime: any
+  sort: any
+  setSort: any
+  sortValue: any
+  setSortValue: any
+  acending: any
+  setAcending: any
+  acendingValue: any
+  setAcendingValue: any
+  setPage: any
+  animeWatchlist: any
+  setAnimeWatchlist: any
+  watching: any
+  setWatching: any
 }
 
 export default function MainContent(props: MainProps) {
-
   const [closeButton, setCloseButton] = useState(true)
 
   const checkDropdown = (e: any) => {
-    props.setDropValue(e.target.value);
-    if (e.target.value === "Top Anime") {
-      props.setPage(1);
-      props.getTopAnime();
-    } else if (e.target.value === "Seasonal Anime") {
-      props.setPage(1);
-      props.getSeasonalAnime();
-    } else if (e.target.value === "Upcoming Anime") {
-      props.setPage(1);
-      props.getUpcomingAnime();
+    props.setDropValue(e.target.value)
+    if (e.target.value === 'Top Anime') {
+      props.setPage(1)
+      props.getTopAnime()
+    } else if (e.target.value === 'Seasonal Anime') {
+      props.setPage(1)
+      props.getSeasonalAnime()
+    } else if (e.target.value === 'Upcoming Anime') {
+      props.setPage(1)
+      props.getUpcomingAnime()
     }
-    console.log(props.dropValue);
-  };
+    console.log(props.dropValue)
+  }
 
   const checkSort = (e: any) => {
-    console.log(e.target.value);
-    props.setSortValue(e.target.value);
-    if (e.target.value === "Score") {
-      sortByValue();
+    console.log(e.target.value)
+    props.setSortValue(e.target.value)
+    if (e.target.value === 'Score') {
+      sortByValue()
     }
-    if (e.target.value === "Name") {
-      sortByName();
+    if (e.target.value === 'Name') {
+      sortByName()
     }
-    if (e.target.value === "Episodes") {
-      sortByEpisode();
+    if (e.target.value === 'Episodes') {
+      sortByEpisode()
     }
-    if (e.target.value === "Date") {
-      sortByDate();
+    if (e.target.value === 'Date') {
+      sortByDate()
     }
-  };
+  }
 
   const checkAcending = (e: any) => {
-    props.setAcendingValue(e.target.value);
-  };
+    props.setAcendingValue(e.target.value)
+  }
 
   const sortByValue = () => {
-    if (props.acendingValue === "Acending") {
+    if (props.acendingValue === 'Acending') {
       props.animeList.sort((a: any, b: any) => {
-        return b.score - a.score;
-      });
-    } else if (props.acendingValue === "Decending") {
+        return b.score - a.score
+      })
+    } else if (props.acendingValue === 'Decending') {
       props.animeList.sort((a: any, b: any) => {
-        return a.score - b.score;
-      });
+        return a.score - b.score
+      })
     }
 
-    console.log(props.animeList);
-  };
+    console.log(props.animeList)
+  }
 
   const sortByEpisode = () => {
-    if (props.acendingValue === "Acending") {
+    if (props.acendingValue === 'Acending') {
       props.animeList.sort((a: any, b: any) => {
-        return b.episodes - a.episodes;
-      });
-    } else if (props.acendingValue === "Decending") {
+        return b.episodes - a.episodes
+      })
+    } else if (props.acendingValue === 'Decending') {
       props.animeList.sort((a: any, b: any) => {
-        return a.episodes - b.episodes;
-      });
+        return a.episodes - b.episodes
+      })
     }
 
-    console.log(props.animeList);
-  };
+    console.log(props.animeList)
+  }
 
   const sortByName = () => {
     props.animeList.sort((a: any, b: any) => {
-      let nameA = a.title.toUpperCase();
-      let nameB = b.title.toUpperCase();
+      let nameA = a.title.toUpperCase()
+      let nameB = b.title.toUpperCase()
 
-      if (props.acendingValue === "Acending") {
+      if (props.acendingValue === 'Acending') {
         if (nameA < nameB) {
-          return -1;
+          return -1
         }
         if (nameA > nameB) {
-          return 1;
+          return 1
         }
 
-        return 0;
+        return 0
       }
 
-      if (props.acendingValue === "Decending") {
+      if (props.acendingValue === 'Decending') {
         if (nameA < nameB) {
-          return 1;
+          return 1
         }
         if (nameA > nameB) {
-          return -1;
+          return -1
         }
 
-        return 0;
+        return 0
       }
 
-      return 0;
-    });
-  };
+      return 0
+    })
+  }
 
   const sortByDate = () => {
     props.animeList.sort((a: any, b: any) => {
-      let nameA = a.start_date.toUpperCase();
-      let nameB = b.start_date.toUpperCase();
+      let nameA = a.aired.from.toUpperCase()
+      let nameB = b.aired.from.toUpperCase()
 
-      if (props.acendingValue === "Acending") {
+      if (props.acendingValue === 'Acending') {
         if (nameA < nameB) {
-          return -1;
+          return -1
         }
         if (nameA > nameB) {
-          return 1;
+          return 1
         }
 
-        return 0;
+        return 0
       }
 
-      if (props.acendingValue === "Decending") {
+      if (props.acendingValue === 'Decending') {
         if (nameA < nameB) {
-          return 1;
+          return 1
         }
         if (nameA > nameB) {
-          return -1;
+          return -1
         }
 
-        return 0;
+        return 0
       }
 
-      return 0;
-    });
-  };
+      return 0
+    })
+  }
 
   useEffect(() => {
-    if (props.acendingValue === "Acending") {
-      props.setAcending("Acending");
-    } else if (props.acendingValue === "Decending") {
-      props.setAcending("Decending");
+    if (props.acendingValue === 'Acending') {
+      props.setAcending('Acending')
+    } else if (props.acendingValue === 'Decending') {
+      props.setAcending('Decending')
     }
 
-    if (props.sortValue === "Score") {
-      sortByValue();
+    if (props.sortValue === 'Score') {
+      sortByValue()
     }
 
-    if (props.sortValue === "Name") {
-      sortByName();
+    if (props.sortValue === 'Name') {
+      sortByName()
     }
 
-    if (props.sortValue === "Episodes") {
-      sortByEpisode();
+    if (props.sortValue === 'Episodes') {
+      sortByEpisode()
     }
 
-    if (props.sortValue === "Date") {
-      sortByDate();
+    if (props.sortValue === 'Date') {
+      sortByDate()
     }
-  }, [props.acendingValue, props.sortValue]);
+  }, [props.acendingValue, props.sortValue])
 
   useEffect(() => {
     if (props.search != '') {
       setCloseButton(false)
-    }
-    else {
+    } else {
       setCloseButton(true)
     }
   }, [props.search])
 
-  
+  console.log(props.animeList)
 
   return (
     <div className="bg-sky-900">
       <div className="flex mb-12 topContainer">
         <div className="search-box">
           <form className="mt-6 ml-8 searchForm" onSubmit={props.HandleSearch}>
-            <button className="btn-search" aria-label="search button icon" disabled={closeButton}>
+            <button
+              className="btn-search"
+              aria-label="search button icon"
+              disabled={closeButton}
+            >
               <i className="flex justify-center">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -237,15 +241,11 @@ export default function MainContent(props: MainProps) {
             <option value="Select..." disabled={true}>
               Category...
             </option>
-            <option value="Top Anime" className="font-semibold">
+            <option value="Top Anime" className="">
               Top Anime
             </option>
-            <option value="Seasonal Anime" >
-              Seasonal Anime
-            </option>
-            <option value="Upcoming Anime" >
-              Upcoming Anime
-            </option>
+            <option value="Seasonal Anime">Seasonal Anime</option>
+            <option value="Upcoming Anime">Upcoming Anime</option>
           </select>
         </div>
       </div>
@@ -261,15 +261,11 @@ export default function MainContent(props: MainProps) {
               onChange={checkAcending}
               value={props.acending}
             >
-              <option value="Select..."  className="options" disabled={true}>
+              <option value="Select..." className="options" disabled={true}>
                 Sort by...
               </option>
-              <option value="Acending" >
-                Acending
-              </option>
-              <option value="Decending" >
-                Decending
-              </option>
+              <option value="Acending">Acending</option>
+              <option value="Decending">Decending</option>
             </select>
           </div>
           <div className="ml-auto mt-auto pr-12 outline-none w-24 sort2 font-semibold">
@@ -281,18 +277,10 @@ export default function MainContent(props: MainProps) {
               <option value="Select..." disabled={true}>
                 Sort by...
               </option>
-              <option value="Score" >
-                Score
-              </option>
-              <option value="Name" >
-                Name
-              </option>
-              <option value="Episodes" >
-                Episodes
-              </option>
-              <option value="Date" >
-                Date
-              </option>
+              <option value="Score">Score</option>
+              <option value="Name">Name</option>
+              <option value="Episodes">Episodes</option>
+              <option value="Date">Date</option>
             </select>
           </div>
         </div>
@@ -300,11 +288,11 @@ export default function MainContent(props: MainProps) {
 
       <div className="flex justify-center bg-grey-400 cardCont">
         <LoadingScreen loading={props.loading} />
-        
-        
-        <main className="flex flex-wrap justify-center flex-row w-3/4 cardz" style={{ display: props.loading ? 'none' : ''}}>
-          
-          
+
+        <main
+          className="flex flex-wrap justify-center flex-row w-7/8 cardz"
+          style={{ display: props.loading ? 'none' : '' }}
+        >
           {props.animeList.map((item: any) => (
             <AnimeCard
               anime={item}
@@ -313,10 +301,12 @@ export default function MainContent(props: MainProps) {
               dropValue={props.dropValue}
               animeWatchlist={props.animeWatchlist}
               setAnimeWatchlist={props.setAnimeWatchlist}
+              watching={props.watching}
+              setWatching={props.setWatching}
             />
           ))}
         </main>
       </div>
     </div>
-  );
+  )
 }

@@ -1,29 +1,52 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 
 type CardProps = {
   anime: any
   sortValue: any
   dropValue: any
-  animeWatchlist: any,
+  animeWatchlist: any
   setAnimeWatchlist: any
+  watching: any
+  setWatching: any
 }
 
-export default function AnimeCard({ anime, sortValue, dropValue, animeWatchlist, setAnimeWatchlist }: CardProps) {
+export default function AnimeCard({
+  anime,
+  sortValue,
+  dropValue,
+  animeWatchlist,
+  setAnimeWatchlist,
+  watching,
+  setWatching
+}: CardProps) {
+
   const newTitle = anime.title.replace(/\s+/g, '-').toLowerCase()
+
+  
 
   function handleClick(e: MouseEvent) {
     //@ts-ignore
     const name = e?.target?.name
     //@ts-ignore
-    const id = e?.target?.id
-    
-      localStorage.setItem(name, id)
-    
-    
+    const day = e?.target?.id
+
+    localStorage.setItem(name, day)
+
+    setWatching(!watching)
   }
 
-  
-  
+  function handleClickRemove(e: MouseEvent) {
+    //@ts-ignore
+    const name = e?.target?.name
+
+    localStorage.removeItem(name)
+
+    setWatching(!watching)
+  }
+
+  useEffect(() => {
+
+  }, [watching])
 
   return (
     <div
@@ -32,7 +55,7 @@ export default function AnimeCard({ anime, sortValue, dropValue, animeWatchlist,
       <div className="cardNumber outlineText">
         {sortValue === 'Score'
           ? anime.score
-          : dropValue === 'Top Anime' || dropValue === ''
+          : dropValue === 'Top Anime'
           ? `#${anime.rank}`
           : ''}
       </div>
@@ -55,12 +78,12 @@ export default function AnimeCard({ anime, sortValue, dropValue, animeWatchlist,
       <div className="mt-auto flex flex-col w-full items-center text-center">
         <h1 className="font-medium max-w-[288px] outlineText">{anime.title}</h1>
         <button
-          id={anime.mal_id}
+          id={anime.broadcast.day}
           name={anime.title}
-          onClick={() => handleClick(event as MouseEvent)}
+          onClick={anime.title in localStorage ? () => handleClickRemove(event as MouseEvent) : () => handleClick(event as MouseEvent)}
           className="flex text-sm"
         >
-          Add to Watchlist
+          {anime.airing ? anime.title in localStorage ? 'Remove from Watchlist' : 'Add to Watchlist' : ''}
         </button>
       </div>
     </div>
