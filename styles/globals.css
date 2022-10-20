@@ -5,110 +5,15 @@
 @tailwind components;
 @tailwind utilities;
 
-
-
-
 :root {
   --tw-bg-opacity: 1;
-  
-    background-color: rgb(12 74 110 / var(--tw-bg-opacity))
-}
 
-.lds-roller {
-  display: inline-block;
-  position: relative;
-  width: 80px;
-  height: 80px;
-}
-.lds-roller div {
-  animation: lds-roller 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
-  transform-origin: 40px 40px;
-}
-.lds-roller div:after {
-  content: " ";
-  display: block;
-  position: absolute;
-  width: 7px;
-  height: 7px;
-  border-radius: 50%;
-  background: rgb(0, 0, 0);
-  margin: -4px 0 0 -4px;
-}
-.lds-roller div:nth-child(1) {
-  animation-delay: -0.036s;
-}
-.lds-roller div:nth-child(1):after {
-  top: 63px;
-  left: 63px;
-}
-.lds-roller div:nth-child(2) {
-  animation-delay: -0.072s;
-}
-.lds-roller div:nth-child(2):after {
-  top: 68px;
-  left: 56px;
-}
-.lds-roller div:nth-child(3) {
-  animation-delay: -0.108s;
-}
-.lds-roller div:nth-child(3):after {
-  top: 71px;
-  left: 48px;
-}
-.lds-roller div:nth-child(4) {
-  animation-delay: -0.144s;
-}
-.lds-roller div:nth-child(4):after {
-  top: 72px;
-  left: 40px;
-}
-.lds-roller div:nth-child(5) {
-  animation-delay: -0.18s;
-}
-.lds-roller div:nth-child(5):after {
-  top: 71px;
-  left: 32px;
-}
-.lds-roller div:nth-child(6) {
-  animation-delay: -0.216s;
-}
-.lds-roller div:nth-child(6):after {
-  top: 68px;
-  left: 24px;
-}
-.lds-roller div:nth-child(7) {
-  animation-delay: -0.252s;
-}
-.lds-roller div:nth-child(7):after {
-  top: 63px;
-  left: 17px;
-}
-.lds-roller div:nth-child(8) {
-  animation-delay: -0.288s;
-}
-.lds-roller div:nth-child(8):after {
-  top: 56px;
-  left: 12px;
+  background-color: rgb(12 74 110 / var(--tw-bg-opacity));
 }
 
 .outlineText {
-  text-shadow: -1px 1px 2px #000,
-				  1px 2px 6px #000,
-				  1px -1px 0 #000,
-				  -1px -1px 0 #000;
-}
-
-
-
-
-
-@keyframes lds-roller {
-  0% {
-    transform: rotate(0deg);
-  }
-  100% {
-    transform: rotate(360deg);
-  }
+  text-shadow: -1px 1px 2px #000, 1px 2px 6px #000, 1px -1px 0 #000,
+    -1px -1px 0 #000;
 }
 
 select:focus {
@@ -156,8 +61,7 @@ select:focus {
   pointer-events: painted;
 }
 
-[type="search"]::-webkit-search-cancel-button {
-  
+[type='search']::-webkit-search-cancel-button {
   -webkit-appearance: none;
   appearance: none;
   height: 10px;
@@ -187,14 +91,6 @@ select:focus {
   padding-bottom: 6px;
 }
 
-.myHeader {
-  font-family: "Rowdies", Sans-Serif;
-}
-
-.displayTitle {
-  font-family: "Rowdies", Sans-Serif;
-}
-
 .scrollbar::-webkit-scrollbar {
   width: 8px;
   height: 12px;
@@ -209,19 +105,15 @@ select:focus {
 .scrollbar::-webkit-scrollbar-thumb {
   background: #e0cbcb;
   border-radius: 100vh;
-  
 }
 
 .scrollbar::-webkit-scrollbar-thumb:hover {
   background: #c0a0b9;
 }
 
-
-
 @media (max-width: 500px) {
   html,
   body {
-    overflow-x: hidden;
   }
 
   .input-search {
@@ -230,24 +122,15 @@ select:focus {
     background-color: transparent;
     border-bottom: 1px solid rgba(0, 0, 0, 0.5);
   }
-  .cardz {
+  /* .cardz {
     width: 100%;
-  }
-  .cardCont {
+  } */
+  /* .cardCont {
     width: 100%;
-  }
+  } */
 
   .topContainer {
     flex-direction: column;
-  }
-
-  .myHeader {
-    height: 175px;
-    background-size: 100% 200px !important;
-    padding-top: 100px;
-    font-size: 50px;
-    padding-left: 0;
-    text-align: center;
   }
 
   select {
@@ -269,10 +152,6 @@ select:focus {
     margin-bottom: 40px;
     margin-right: auto;
     width: 100%;
-  }
-
-  .myCard {
-    flex-basis: 50%;
   }
 
   .searchForm {

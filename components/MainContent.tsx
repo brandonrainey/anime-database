@@ -4,33 +4,33 @@ import LoadingScreen from './LoadingScreen'
 
 type MainProps = {
   anime: any
-  setAnime: any
-  search: any
-  setSearch: any
-  HandleSearch: any
-  animeList: any
-  loading: any
-  setLoading: any
-  displayTitle: any
-  setDisplayTitle: any
-  getTopAnime: any
-  dropValue: any
-  setDropValue: any
-  getSeasonalAnime: any
-  getUpcomingAnime: any
-  sort: any
-  setSort: any
-  sortValue: any
-  setSortValue: any
-  acending: any
-  setAcending: any
-  acendingValue: any
-  setAcendingValue: any
-  setPage: any
-  animeWatchlist: any
-  setAnimeWatchlist: any
+  setAnime: React.Dispatch<React.SetStateAction<never[]>>
+  search: string
+  setSearch: React.Dispatch<React.SetStateAction<string>>
+  HandleSearch: (e: any) => void
+  animeList: string[]
+  loading: boolean
+  setLoading: React.Dispatch<React.SetStateAction<boolean>>
+  displayTitle: string
+  setDisplayTitle: React.Dispatch<React.SetStateAction<string>>
+  getTopAnime: () => void
+  dropValue: string
+  setDropValue: React.Dispatch<React.SetStateAction<string>>
+  getSeasonalAnime: () => void
+  getUpcomingAnime: () => void
+  sort: string
+  setSort: React.Dispatch<React.SetStateAction<string>>
+  sortValue: string
+  setSortValue: React.Dispatch<React.SetStateAction<string>>
+  acending: string
+  setAcending: React.Dispatch<React.SetStateAction<string>>
+  acendingValue: string
+  setAcendingValue: React.Dispatch<React.SetStateAction<string>>
+  setPage: React.Dispatch<React.SetStateAction<number>>
+  animeWatchlist: string[]
+  setAnimeWatchlist: React.Dispatch<React.SetStateAction<any | null>>
   watching: any
-  setWatching: any
+  setWatching: React.Dispatch<React.SetStateAction<boolean | null>>
 }
 
 export default function MainContent(props: MainProps) {
@@ -194,7 +194,7 @@ export default function MainContent(props: MainProps) {
     }
   }, [props.search])
 
-  console.log(props.animeList)
+  
 
   return (
     <div className="bg-sky-900">

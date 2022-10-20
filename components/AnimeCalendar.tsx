@@ -12,8 +12,8 @@ export default function AnimeCalendar({ animeWatchlist }: CalendarProps) {
 
   console.log(animeWatchlist)
   return (
-    <div className='flex w-full justify-center gap-6 p-2'>
-      <div className={`flex flex-col gap-1 w-40 h-44 rounded-lg bg-cyan-600 shadow p-1 ${day == 0 ? 'border-blue-800 border-4' : ''} overflow-y-auto scrollbar`}>
+    <div className='flex flex-nowrap sm:flex-wrap w-full justify-center gap-6 p-2 overflow-auto'>
+      <div className={`flex flex-col gap-1 w-40 h-44 rounded-lg bg-cyan-600 shadow p-1 ${day == 0 ? 'border-blue-800 border-4' : ''} overflow-y-auto scrollbar shrink-0 ${day != 0 ? '' : ''}`}>
         <p className='text-center font-bold'>Sunday</p>
         {animeWatchlist ? animeWatchlist[0].map((item: any) => {
           
@@ -22,7 +22,7 @@ export default function AnimeCalendar({ animeWatchlist }: CalendarProps) {
           }
         }) : null}
       </div> 
-      <div className={`flex flex-col  gap-1 w-40 h-44 rounded-lg bg-cyan-600 shadow p-1 ${day == 1 ? 'border-blue-800 border-4' : ''} overflow-y-auto scrollbar`}>
+      <div className={`flex flex-col gap-1 w-40 h-44 rounded-lg bg-cyan-600 shadow p-1 ${day == 1 ? 'border-blue-800 border-4' : ''} overflow-y-auto scrollbar shrink-0`}>
         <p className='text-center font-bold'>Monday</p>
         {animeWatchlist ? animeWatchlist[0].map((item: any) => {
           
@@ -31,7 +31,7 @@ export default function AnimeCalendar({ animeWatchlist }: CalendarProps) {
           }
         }) : null}
       </div>
-      <div className={`flex flex-col  gap-1 w-40 h-44 rounded-lg bg-cyan-600 shadow p-1 ${day == 2 ? 'border-blue-800 border-4' : ''} overflow-y-auto scrollbar`}>
+      <div className={`flex flex-col gap-1 w-40 h-44 rounded-lg bg-cyan-600 shadow p-1 ${day == 2 ? 'border-blue-800 border-4' : ''} overflow-y-auto scrollbar shrink-0`}>
         <p className='text-center font-bold'>Tuesday</p>
         {animeWatchlist ? animeWatchlist[0].map((item: any) => {
           
@@ -40,7 +40,7 @@ export default function AnimeCalendar({ animeWatchlist }: CalendarProps) {
           }
         }) : null}
       </div>
-      <div className={`flex flex-col  gap-1 w-40 h-44 rounded-lg bg-cyan-600 shadow p-1 ${day == 3 ? 'border-blue-800 border-4' : ''} overflow-y-auto scrollbar`}>
+      <div className={`flex flex-col gap-1 w-40 h-44 rounded-lg bg-cyan-600 shadow p-1 ${day == 3 ? 'border-blue-800 border-4' : ''} overflow-y-auto scrollbar shrink-0`}>
         <p className='text-center font-bold'>Wednesday</p>
         {animeWatchlist ? animeWatchlist[0].map((item: any) => {
           
@@ -49,7 +49,7 @@ export default function AnimeCalendar({ animeWatchlist }: CalendarProps) {
           }
         }) : null}
       </div>
-      <div className={`flex flex-col  gap-1 w-40 h-44 rounded-lg bg-cyan-600 shadow p-1 ${day == 4 ? 'border-blue-800 border-4' : ''} overflow-y-auto scrollbar`}>
+      <div className={`flex flex-col gap-1 w-40 h-44 rounded-lg bg-cyan-600 shadow p-1 ${day == 4 ? 'border-blue-800 border-4' : ''} overflow-y-auto scrollbar shrink-0`}>
         <p className='text-center font-bold'>Thursday</p>
         {animeWatchlist ? animeWatchlist[0].map((item: any) => {
           
@@ -58,7 +58,7 @@ export default function AnimeCalendar({ animeWatchlist }: CalendarProps) {
           }
         }) : null}
       </div>
-      <div className={`flex flex-col  gap-1 w-40 h-44 rounded-lg bg-cyan-600 shadow p-1 ${day == 5 ? 'border-blue-800 border-4' : ''} overflow-y-auto scrollbar`}>
+      <div className={`flex flex-col gap-1 w-40 h-44 rounded-lg bg-cyan-600 shadow p-1 ${day == 5 ? 'border-blue-800 border-4' : ''} overflow-y-auto scrollbar shrink-0`}>
         <p className='text-center font-bold'>Friday</p>
         {animeWatchlist ? animeWatchlist[0].map((item: any) => {
           
@@ -67,7 +67,7 @@ export default function AnimeCalendar({ animeWatchlist }: CalendarProps) {
           }
         }) : null}
       </div>
-      <div className={`flex flex-col  gap-1 w-40 h-44 rounded-lg bg-cyan-600 shadow p-1 ${day == 6 ? 'border-blue-800 border-4' : ''} overflow-y-auto scrollbar`}>
+      <div className={`flex flex-col gap-1 w-40 h-44 rounded-lg bg-cyan-600 shadow p-1 ${day == 6 ? 'border-blue-800 border-4' : ''} overflow-y-auto scrollbar shrink-0`}>
         <p className='text-center font-bold'>Saturday</p>
         {animeWatchlist ? animeWatchlist[0].map((item: any) => {
           

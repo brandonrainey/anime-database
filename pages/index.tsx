@@ -21,7 +21,6 @@ const Home: NextPage = () => {
   const [page, setPage] = useState(1)
   const topRef = useRef<HTMLDivElement>(null)
   const [animeWatchlist, setAnimeWatchlist] = useState<any | null>(null)
-  const [schedules, setSchedules] = useState<any | null>([])
   const [watching, setWatching] = useState<boolean | null>(null)
 
   const scrollToTop = () => {
@@ -117,6 +116,8 @@ const Home: NextPage = () => {
     }
     console.log('runs')
   }, [watching])
+
+  console.log(dropValue)
 
   return (
     <div ref={topRef} className="bg-gray-200">

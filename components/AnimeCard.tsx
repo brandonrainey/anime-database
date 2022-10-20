@@ -2,20 +2,18 @@ import React, { useEffect, useState } from 'react'
 
 type CardProps = {
   anime: any
-  sortValue: any
-  dropValue: any
-  animeWatchlist: any
-  setAnimeWatchlist: any
+  sortValue: string
+  dropValue: string
+  animeWatchlist: string[]
+  setAnimeWatchlist: React.Dispatch<React.SetStateAction<any | null>>
   watching: any
-  setWatching: any
+  setWatching: React.Dispatch<React.SetStateAction<boolean | null>>
 }
 
 export default function AnimeCard({
   anime,
   sortValue,
   dropValue,
-  animeWatchlist,
-  setAnimeWatchlist,
   watching,
   setWatching
 }: CardProps) {
@@ -44,13 +42,9 @@ export default function AnimeCard({
     setWatching(!watching)
   }
 
-  useEffect(() => {
-
-  }, [watching])
-
   return (
     <div
-      className={`p-2 flex-3  pb-8 flex myCard flex-col items-center  min-w-[288px] text-white font-['Signika_Negative']`}
+      className={`p-2 flex-3 pb-8 flex  flex-col items-center  min-w-[175px] sm:min-w-[288px] text-white font-['Signika_Negative']`}
     >
       <div className="cardNumber outlineText">
         {sortValue === 'Score'
@@ -70,7 +64,7 @@ export default function AnimeCard({
           <img
             src={anime.images.webp.image_url}
             alt={anime.mal_id}
-            className="rounded-md shadow-xl h-96"
+            className="rounded-md shadow-xl sm:h-96"
           />
         </figure>
       </a>
