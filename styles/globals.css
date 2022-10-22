@@ -35,12 +35,12 @@ select:focus {
   outline: none;
   border-radius: 25px;
   transition: all 0.5s ease-in-out;
-  background-color: #9caeb1;
+  background-color: #a8dadc;
   padding-right: 40px;
   color: rgb(0, 0, 0);
 }
 .input-search::placeholder {
-  color: rgba(78, 75, 75, 0.5);
+  color: #457b9d;
   font-size: 18px;
   letter-spacing: 2px;
   font-weight: 100;
@@ -112,9 +112,7 @@ select:focus {
 }
 
 @media (max-width: 500px) {
-  html,
-  body {
-  }
+  
 
   .input-search {
     width: 100%;
@@ -133,9 +131,7 @@ select:focus {
     flex-direction: column;
   }
 
-  select {
-    width: 116px !important;
-  }
+  
 
   .myCategory {
     padding-top: 6px;
@@ -179,3 +175,5 @@ select:focus {
 html {
   background-color: rgba(229, 231, 235, var(--tw-bg-opacity));
 }
+
+

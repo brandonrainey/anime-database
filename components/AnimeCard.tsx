@@ -15,12 +15,9 @@ export default function AnimeCard({
   sortValue,
   dropValue,
   watching,
-  setWatching
+  setWatching,
 }: CardProps) {
-
   const newTitle = anime.title.replace(/\s+/g, '-').toLowerCase()
-
-  
 
   function handleClick(e: MouseEvent) {
     //@ts-ignore
@@ -74,10 +71,18 @@ export default function AnimeCard({
         <button
           id={anime.broadcast.day}
           name={anime.title}
-          onClick={anime.title in localStorage ? () => handleClickRemove(event as MouseEvent) : () => handleClick(event as MouseEvent)}
+          onClick={
+            anime.title in localStorage
+              ? () => handleClickRemove(event as MouseEvent)
+              : () => handleClick(event as MouseEvent)
+          }
           className="flex text-sm"
         >
-          {anime.airing ? anime.title in localStorage ? 'Remove from Watchlist' : 'Add to Watchlist' : ''}
+          {anime.airing
+            ? anime.title in localStorage
+              ? 'Remove from Watchlist'
+              : 'Add to Watchlist'
+            : ''}
         </button>
       </div>
     </div>

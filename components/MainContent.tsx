@@ -194,10 +194,8 @@ export default function MainContent(props: MainProps) {
     }
   }, [props.search])
 
-  
-
   return (
-    <div className="bg-sky-900">
+    <div className="bg-[#1d3557]">
       <div className="flex mb-12 topContainer">
         <div className="search-box">
           <form className="mt-6 ml-8 searchForm" onSubmit={props.HandleSearch}>
@@ -226,7 +224,7 @@ export default function MainContent(props: MainProps) {
             <input
               type="search"
               placeholder="Search anime..."
-              className="input-search"
+              className="input-search text-[#457b9d]"
               value={props.search}
               onChange={(e) => props.setSearch(e.target.value)}
             />
@@ -290,8 +288,9 @@ export default function MainContent(props: MainProps) {
         <LoadingScreen loading={props.loading} />
 
         <main
-          className="flex flex-wrap justify-center flex-row w-7/8 cardz"
-          style={{ display: props.loading ? 'none' : '' }}
+          className={`flex flex-wrap justify-center flex-row w-7/8 cardz ${
+            props.loading ? 'hidden' : ''
+          }`}
         >
           {props.animeList.map((item: any) => (
             <AnimeCard

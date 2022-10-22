@@ -1,6 +1,5 @@
 import type { NextPage } from 'next'
 import Head from 'next/head'
-import Image from 'next/image'
 import React, { useState, useEffect, useRef } from 'react'
 import Axios from 'axios'
 import Header from '../components/Header'
@@ -94,8 +93,6 @@ const Home: NextPage = () => {
       })
   }
 
-
-
   useEffect(() => {
     if (displayTitle === 'Top Anime') {
       getTopAnime()
@@ -117,10 +114,14 @@ const Home: NextPage = () => {
     console.log('runs')
   }, [watching])
 
-  console.log(dropValue)
+  
 
   return (
-    <div ref={topRef} className="bg-gray-200">
+    <div ref={topRef} className="bg-[#1d3557]">
+      <Head>
+        <title>easybank landing page</title>
+        <meta name='description' content='recreated frontend masters challenge for my portfolio'/>
+      </Head>
       <Header animeWatchlist={animeWatchlist} />
       <MainContent
         anime={anime}

@@ -9,17 +9,18 @@ type HeaderProps = {
 }
 
 export default function Header({ animeWatchlist }: HeaderProps) {
-
   const isMobile = useMediaQuery('(max-width: 655px)')
 
-  console.log(isMobile)
   return (
     <div>
-      <header className="text-6xl border-b-2 border-black border-opacity-50 h-36 pt-12 pl-12 myHeader text-white font-bold font-custom bg-sky-800">
-        Anime-DB
+      <header className="text-5xl sm:text-6xl border-b-2 border-black border-opacity-50 h-36 pt-12  text-black font-bold font-['Signika_Negative'] bg-[#f1faee] text-center">
+        Anime Database
       </header>
-      {isMobile ? <AnimeCalendarMobile /> : <AnimeCalendar animeWatchlist={animeWatchlist} />}
-      
+      {isMobile ? (
+        <AnimeCalendarMobile animeWatchlist={animeWatchlist} />
+      ) : (
+        <AnimeCalendar animeWatchlist={animeWatchlist} />
+      )}
     </div>
   )
 }
