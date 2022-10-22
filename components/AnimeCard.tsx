@@ -70,6 +70,7 @@ export default function AnimeCard({
         <h1 className="font-medium max-w-[288px] outlineText">{anime.title}</h1>
         <button
           id={anime.broadcast.day}
+          aria-label='add/remove from watchlist button'
           name={anime.title}
           onClick={
             anime.title in localStorage

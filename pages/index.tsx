@@ -119,8 +119,8 @@ const Home: NextPage = () => {
   return (
     <div ref={topRef} className="bg-[#1d3557]">
       <Head>
-        <title>easybank landing page</title>
-        <meta name='description' content='recreated frontend masters challenge for my portfolio'/>
+        <title>anime database</title>
+        <meta name='description' content='anime database using MAL API'/>
       </Head>
       <Header animeWatchlist={animeWatchlist} />
       <MainContent
