@@ -41,7 +41,7 @@ export default function AnimeCalendarMobile({ animeWatchlist }: CalendarProps) {
             day == 0
               ? 'outline-8 outline-[#457b9d] outline bg-[#457b9d] text-white'
               : ''
-          } overflow-y-auto scrollbar shrink-0 ${day != 0 ? '' : ''}`}
+          } overflow-y-auto scrollbar shrink-0 rounded-lg`}
           key={0}
         >
           <p className="text-center font-bold text-lg">Sunday</p>
@@ -71,7 +71,7 @@ export default function AnimeCalendarMobile({ animeWatchlist }: CalendarProps) {
             day == 1
               ? 'outline-8 outline-[#457b9d] outline bg-[#457b9d] text-white'
               : ''
-          } overflow-y-auto scrollbar shrink-0`}
+          } overflow-y-auto scrollbar shrink-0 rounded-lg`}
           key={1}
         >
           <p className="text-center font-bold text-lg">Monday</p>
@@ -101,7 +101,7 @@ export default function AnimeCalendarMobile({ animeWatchlist }: CalendarProps) {
             day == 2
               ? 'outline-8 outline-[#457b9d] outline bg-[#457b9d] text-white'
               : ''
-          } overflow-y-auto scrollbar shrink-0`}
+          } overflow-y-auto scrollbar shrink-0 rounded-lg`}
           key={2}
         >
           <p className="text-center font-bold text-lg">Tuesday</p>
@@ -131,7 +131,7 @@ export default function AnimeCalendarMobile({ animeWatchlist }: CalendarProps) {
             day == 3
               ? 'outline-8 outline-[#457b9d] outline bg-[#457b9d] text-white'
               : ''
-          } overflow-y-auto scrollbar shrink-0`}
+          } overflow-y-auto scrollbar shrink-0 rounded-lg`}
           key={3}
         >
           <p className="text-center font-bold text-lg">Wednesday</p>
@@ -161,7 +161,7 @@ export default function AnimeCalendarMobile({ animeWatchlist }: CalendarProps) {
             day == 4
               ? 'outline-8 outline-[#457b9d] outline bg-[#457b9d] text-white'
               : ''
-          } overflow-y-auto scrollbar shrink-0`}
+          } overflow-y-auto scrollbar shrink-0 rounded-lg`}
           key={4}
         >
           <p className="text-center font-bold text-lg">Thursday</p>
@@ -191,7 +191,7 @@ export default function AnimeCalendarMobile({ animeWatchlist }: CalendarProps) {
             day == 5
               ? 'outline-8 outline-[#457b9d] outline bg-[#457b9d] text-white'
               : ''
-          } overflow-y-auto scrollbar shrink-0`}
+          } overflow-y-auto scrollbar shrink-0 rounded-lg`}
           key={5}
         >
           <p className="text-center font-bold text-lg">Friday</p>
@@ -221,7 +221,7 @@ export default function AnimeCalendarMobile({ animeWatchlist }: CalendarProps) {
             day == 6
               ? 'outline-8 outline-[#457b9d] outline bg-[#457b9d] text-white'
               : ''
-          } overflow-y-auto scrollbar shrink-0`}
+          } overflow-y-auto scrollbar shrink-0 rounded-lg`}
           key={6}
         >
           <p className="text-center font-bold text-lg">Saturday</p>

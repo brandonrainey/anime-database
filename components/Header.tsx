@@ -13,7 +13,7 @@ export default function Header({ animeWatchlist }: HeaderProps) {
 
   return (
     <div>
-      <header className="text-5xl sm:text-6xl border-b-2 border-black border-opacity-50 h-36 pt-12  text-black font-bold font-['Signika_Negative'] bg-[#f1faee] text-center">
+      <header className="text-3xl sm:text-3xl border-b-2 h-20  text-black font-bold font-['Signika_Negative'] bg-[#f1faee] pt-8 sm:pl-4 text-center sm:text-left shadow-xl mb-8">
         Anime Database
       </header>
       {isMobile ? (

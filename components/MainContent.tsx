@@ -197,7 +197,7 @@ export default function MainContent(props: MainProps) {
   return (
     <div className="bg-[#1d3557]">
       <div className="flex mb-12 topContainer">
-        <div className="search-box">
+        <div className="search-box mt-4">
           <form className="mt-6 ml-8 searchForm" onSubmit={props.HandleSearch}>
             <button
               className="btn-search"
