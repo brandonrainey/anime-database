@@ -7,7 +7,7 @@
 
 :root {
   --tw-bg-opacity: 1;
-    background-color: rgb(29 53 87 / var(--tw-bg-opacity));
+  background-color: rgb(29 53 87 / var(--tw-bg-opacity));
 }
 
 .outlineText {
@@ -111,8 +111,6 @@ select:focus {
 }
 
 @media (max-width: 500px) {
-  
-
   .input-search {
     width: 100%;
     border-radius: 0px;
@@ -129,8 +127,6 @@ select:focus {
   .topContainer {
     flex-direction: column;
   }
-
-  
 
   .myCategory {
     padding-top: 6px;
@@ -175,7 +171,10 @@ html {
   background-color: rgba(229, 231, 235, var(--tw-bg-opacity));
 }
 
-.react-multi-carousel-track {
-  border-radius: 15px;
+.container {
+  padding-bottom: 28px;
 }
 
+.textShadow {
+  text-shadow: 1px 1px 2px rgba(69, 123, 157, 1);
+}

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, ReactHTMLElement, ReactElement } from 'react'
 import Carousel from 'react-multi-carousel'
 import 'react-multi-carousel/lib/styles.css'
 
@@ -11,7 +11,7 @@ export default function AnimeCalendarMobile({ animeWatchlist }: CalendarProps) {
 
   const day = date.getDay()
 
-  const [trackingAnime, setTrackingAnime] = useState([
+  const [trackingAnime, setTrackingAnime] = useState<boolean[]>([
     false,
     false,
     false,
@@ -39,9 +39,9 @@ export default function AnimeCalendarMobile({ animeWatchlist }: CalendarProps) {
         <div
           className={`flex flex-col gap-1 w-full px-16 h-48  bg-[#f1faee] shadow p-1 ${
             day == 0
-              ? 'outline-8 outline-[#457b9d] outline bg-[#457b9d] text-white'
+              ? ' bg-[#457b9d] text-white'
               : ''
-          } overflow-y-auto scrollbar shrink-0 rounded-lg`}
+          } overflow-y-auto scrollbar shrink-0 `}
           key={0}
         >
           <p className="text-center font-bold text-lg">Sunday</p>
@@ -50,7 +50,7 @@ export default function AnimeCalendarMobile({ animeWatchlist }: CalendarProps) {
                 if (item[1] == 'Sundays') {
                   return (
                     <p
-                      className="text-xs font-semibold bg-[#e63946] text-white shadow rounded-xl p-2 sm:p-1 pl-2"
+                      className="text-xs font-semibold bg-[#e63946] text-white shadow rounded-xl p-2 sm:p-1 pl-2 max-w-[300px] self-center"
                       key={item[0]}
                     >
                       {item[0]}
@@ -69,9 +69,9 @@ export default function AnimeCalendarMobile({ animeWatchlist }: CalendarProps) {
         <div
           className={`flex flex-col gap-1 w-full px-16 h-48  bg-[#f1faee] shadow p-1 ${
             day == 1
-              ? 'outline-8 outline-[#457b9d] outline bg-[#457b9d] text-white'
+              ? ' bg-[#457b9d] text-white'
               : ''
-          } overflow-y-auto scrollbar shrink-0 rounded-lg`}
+          } overflow-y-auto scrollbar shrink-0 `}
           key={1}
         >
           <p className="text-center font-bold text-lg">Monday</p>
@@ -80,7 +80,7 @@ export default function AnimeCalendarMobile({ animeWatchlist }: CalendarProps) {
                 if (item[1] == 'Mondays') {
                   return (
                     <p
-                      className="text-xs font-semibold bg-[#e63946] text-white shadow rounded-xl p-1 pl-2"
+                      className="text-xs font-semibold bg-[#e63946] text-white shadow rounded-xl p-1 pl-2 max-w-[300px] self-center"
                       key={item[0]}
                     >
                       {item[0]}
@@ -99,9 +99,9 @@ export default function AnimeCalendarMobile({ animeWatchlist }: CalendarProps) {
         <div
           className={`flex flex-col gap-1 w-full px-16 h-48  bg-[#f1faee] shadow p-1 ${
             day == 2
-              ? 'outline-8 outline-[#457b9d] outline bg-[#457b9d] text-white'
+              ? ' bg-[#457b9d] text-white'
               : ''
-          } overflow-y-auto scrollbar shrink-0 rounded-lg`}
+          } overflow-y-auto scrollbar shrink-0 `}
           key={2}
         >
           <p className="text-center font-bold text-lg">Tuesday</p>
@@ -110,7 +110,7 @@ export default function AnimeCalendarMobile({ animeWatchlist }: CalendarProps) {
                 if (item[1] == 'Tuesdays') {
                   return (
                     <p
-                      className="text-xs font-semibold bg-[#e63946] text-white shadow rounded-xl p-2 pl-2"
+                      className="text-xs font-semibold bg-[#e63946] text-white shadow rounded-xl p-2 pl-2 max-w-[300px] self-center "
                       key={item[0]}
                     >
                       {item[0]}
@@ -129,9 +129,9 @@ export default function AnimeCalendarMobile({ animeWatchlist }: CalendarProps) {
         <div
           className={`flex flex-col gap-1 w-full px-16 h-48  bg-[#f1faee] shadow p-1 ${
             day == 3
-              ? 'outline-8 outline-[#457b9d] outline bg-[#457b9d] text-white'
+              ? ' bg-[#457b9d] text-white'
               : ''
-          } overflow-y-auto scrollbar shrink-0 rounded-lg`}
+          } overflow-y-auto scrollbar shrink-0 `}
           key={3}
         >
           <p className="text-center font-bold text-lg">Wednesday</p>
@@ -140,7 +140,7 @@ export default function AnimeCalendarMobile({ animeWatchlist }: CalendarProps) {
                 if (item[1] == 'Wednesdays') {
                   return (
                     <p
-                      className="text-xs font-semibold bg-[#e63946] text-white shadow rounded-xl p-2 pl-2"
+                      className="text-xs font-semibold bg-[#e63946] text-white shadow rounded-xl p-2 pl-2 max-w-[300px] self-center"
                       key={item[0]}
                     >
                       {item[0]}
@@ -159,9 +159,9 @@ export default function AnimeCalendarMobile({ animeWatchlist }: CalendarProps) {
         <div
           className={`flex flex-col gap-1 w-full px-16 h-48  bg-[#f1faee] shadow p-1 ${
             day == 4
-              ? 'outline-8 outline-[#457b9d] outline bg-[#457b9d] text-white'
+              ? ' bg-[#457b9d] text-white'
               : ''
-          } overflow-y-auto scrollbar shrink-0 rounded-lg`}
+          } overflow-y-auto scrollbar shrink-0 `}
           key={4}
         >
           <p className="text-center font-bold text-lg">Thursday</p>
@@ -170,7 +170,7 @@ export default function AnimeCalendarMobile({ animeWatchlist }: CalendarProps) {
                 if (item[1] == 'Thursdays') {
                   return (
                     <p
-                      className="text-xs font-semibold bg-[#e63946] text-white shadow rounded-xl p-2 pl-2"
+                      className="text-xs font-semibold bg-[#e63946] text-white shadow rounded-xl p-2 pl-2 max-w-[300px] self-center"
                       key={item[0]}
                     >
                       {item[0]}
@@ -189,9 +189,9 @@ export default function AnimeCalendarMobile({ animeWatchlist }: CalendarProps) {
         <div
           className={`flex flex-col gap-1 w-full px-16 h-48  bg-[#f1faee] shadow p-1 ${
             day == 5
-              ? 'outline-8 outline-[#457b9d] outline bg-[#457b9d] text-white'
+              ? ' bg-[#457b9d] text-white'
               : ''
-          } overflow-y-auto scrollbar shrink-0 rounded-lg`}
+          } overflow-y-auto scrollbar shrink-0 `}
           key={5}
         >
           <p className="text-center font-bold text-lg">Friday</p>
@@ -200,7 +200,7 @@ export default function AnimeCalendarMobile({ animeWatchlist }: CalendarProps) {
                 if (item[1] == 'Fridays') {
                   return (
                     <p
-                      className="text-xs font-semibold bg-[#e63946] text-white shadow rounded-xl p-2 pl-2"
+                      className="text-xs font-semibold bg-[#e63946] text-white shadow rounded-xl p-2 pl-2 max-w-[300px] self-center"
                       key={item[0]}
                     >
                       {item[0]}
@@ -219,9 +219,9 @@ export default function AnimeCalendarMobile({ animeWatchlist }: CalendarProps) {
         <div
           className={`flex flex-col gap-1 w-full px-16 h-48  bg-[#f1faee] shadow p-1 ${
             day == 6
-              ? 'outline-8 outline-[#457b9d] outline bg-[#457b9d] text-white'
+              ? ' bg-[#457b9d] text-white'
               : ''
-          } overflow-y-auto scrollbar shrink-0 rounded-lg`}
+          } overflow-y-auto scrollbar shrink-0 `}
           key={6}
         >
           <p className="text-center font-bold text-lg">Saturday</p>
@@ -230,7 +230,7 @@ export default function AnimeCalendarMobile({ animeWatchlist }: CalendarProps) {
                 if (item[1] == 'Saturdays') {
                   return (
                     <p
-                      className="text-xs font-semibold bg-[#e63946] text-white shadow rounded-xl p-2 pl-2"
+                      className="text-xs font-semibold bg-[#e63946] text-white shadow rounded-xl p-2 pl-2 max-w-[300px] self-center"
                       key={item[0]}
                     >
                       {item[0]}
@@ -256,7 +256,7 @@ export default function AnimeCalendarMobile({ animeWatchlist }: CalendarProps) {
       centerMode={false}
       className=""
       containerClass="container"
-      dotListClass=""
+      dotListClass="react-multi-carousel-dot-list"
       draggable
       focusOnSelect={false}
       infinite

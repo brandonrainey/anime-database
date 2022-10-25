@@ -7,9 +7,9 @@ import MainContent from '../components/MainContent'
 import Pagination from '../components/Pagination'
 
 const Home: NextPage = () => {
-  const [anime, setAnime] = useState([])
+  const [anime, setAnime] = useState<{}>([])
   const [search, setSearch] = useState<string>('')
-  const [animeList, setAnimeList] = useState([])
+  const [animeList, setAnimeList] = useState<[]>([])
   const [loading, setLoading] = useState<boolean>(false)
   const [displayTitle, setDisplayTitle] = useState<string>('Top Anime')
   const [dropValue, setDropValue] = useState<string>('')
@@ -114,7 +114,7 @@ const Home: NextPage = () => {
     console.log('runs')
   }, [watching])
 
-  
+  console.log(animeList)
 
   return (
     <div ref={topRef} className="bg-[#1d3557]">

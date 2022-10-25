@@ -249,7 +249,7 @@ export default function MainContent(props: MainProps) {
       </div>
 
       <div className="flex justify-center items-center flex-col mb-4">
-        <h1 className="flex text-center text-3xl mb-6 w-60 bg-gray-100 rounded-xl h-10 shadow-lg font-semibold  justify-center pt-1  font-['Signika_Negative']">
+        <h1 className="flex text-center text-3xl mb-6 w-60 bg-gray-100 rounded-xl h-10 shadow-lg font-semibold  justify-center pt-1  font-['Signika_Negative'] textShadow">
           {props.displayTitle}
         </h1>
         <div className="flex ml-auto mr-12 sortBar">

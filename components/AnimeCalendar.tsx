@@ -12,9 +12,9 @@ export default function AnimeCalendar({ animeWatchlist }: CalendarProps) {
   return (
     <div className="flex flex-nowrap sm:flex-wrap w-full justify-center gap-8 p-2 overflow-auto mt-4">
       <div
-        className={`flex flex-col gap-1 w-44 h-48 rounded-lg bg-[#f1faee] shadow p-1 ${
+        className={`flex flex-col gap-1 w-40 lg:w-52 h-44 lg:h-56  rounded-lg bg-[#f1faee] shadow p-1 ${
           day == 0
-            ? 'outline-8 outline-[#457b9d] outline bg-[#457b9d] text-white'
+            ? ' bg-[#457b9d] text-white'
             : ''
         } overflow-y-auto scrollbar shrink-0 ${day != 0 ? '' : ''}`}
       >
@@ -24,7 +24,7 @@ export default function AnimeCalendar({ animeWatchlist }: CalendarProps) {
               if (item[1] == 'Sundays') {
                 return (
                   <p
-                    className="text-xs font-semibold bg-[#e63946] text-white shadow rounded-xl p-1 pl-2"
+                    className="text-xs font-semibold bg-[#e63946] text-white shadow rounded-xl p-1 pl-2 "
                     key={item[0]}
                   >
                     {item[0]}
@@ -35,9 +35,9 @@ export default function AnimeCalendar({ animeWatchlist }: CalendarProps) {
           : null}
       </div>
       <div
-        className={`flex flex-col gap-1 w-44 h-48 rounded-lg bg-[#f1faee] shadow p-1 ${
+        className={`flex flex-col gap-1 w-40 lg:w-52 h-44 lg:h-56 rounded-lg bg-[#f1faee] shadow p-1 ${
           day == 1
-            ? 'outline-8 outline-[#457b9d] outline bg-[#457b9d] text-white'
+            ? ' bg-[#457b9d] text-white'
             : ''
         } overflow-y-auto scrollbar shrink-0`}
       >
@@ -58,9 +58,9 @@ export default function AnimeCalendar({ animeWatchlist }: CalendarProps) {
           : null}
       </div>
       <div
-        className={`flex flex-col gap-1 w-44 h-48 rounded-lg bg-[#f1faee] shadow p-1 ${
+        className={`flex flex-col gap-1 w-40 lg:w-52 h-44 lg:h-56 rounded-lg bg-[#f1faee] shadow p-1 ${
           day == 2
-            ? 'outline-8 outline-[#457b9d] outline bg-[#457b9d] text-white'
+            ? ' bg-[#457b9d] text-white'
             : ''
         } overflow-y-auto scrollbar shrink-0`}
       >
@@ -70,7 +70,7 @@ export default function AnimeCalendar({ animeWatchlist }: CalendarProps) {
               if (item[1] == 'Tuesdays') {
                 return (
                   <p
-                    className="text-xs font-semibold bg-[#e63946] text-white shadow rounded-xl p-1 pl-2"
+                    className="text-xs font-semibold bg-[#e63946] text-white shadow rounded-xl p-1 pl-2 "
                     key={item[0]}
                   >
                     {item[0]}
@@ -81,9 +81,9 @@ export default function AnimeCalendar({ animeWatchlist }: CalendarProps) {
           : null}
       </div>
       <div
-        className={`flex flex-col gap-1 w-44 h-48 rounded-lg bg-[#f1faee] shadow p-1 ${
+        className={`flex flex-col gap-1 w-40 lg:w-52 h-44 lg:h-56 rounded-lg bg-[#f1faee] shadow p-1 ${
           day == 3
-            ? 'outline-8 outline-[#457b9d] outline bg-[#457b9d] text-white'
+            ? ' bg-[#457b9d] text-white'
             : ''
         } overflow-y-auto scrollbar shrink-0`}
       >
@@ -104,9 +104,9 @@ export default function AnimeCalendar({ animeWatchlist }: CalendarProps) {
           : null}
       </div>
       <div
-        className={`flex flex-col gap-1 w-44 h-48 rounded-lg bg-[#f1faee] shadow p-1 ${
+        className={`flex flex-col gap-1 w-40 lg:w-52 h-44 lg:h-56 rounded-lg bg-[#f1faee] shadow p-1 ${
           day == 4
-            ? 'outline-8 outline-[#457b9d] outline bg-[#457b9d] text-white'
+            ? ' bg-[#457b9d] text-white'
             : ''
         } overflow-y-auto scrollbar shrink-0`}
       >
@@ -127,9 +127,9 @@ export default function AnimeCalendar({ animeWatchlist }: CalendarProps) {
           : null}
       </div>
       <div
-        className={`flex flex-col gap-1 w-44 h-48 rounded-lg bg-[#f1faee] shadow p-1 ${
+        className={`flex flex-col gap-1 w-40 lg:w-52 h-44 lg:h-56 rounded-lg bg-[#f1faee] shadow p-1 ${
           day == 5
-            ? 'outline-8 outline-[#457b9d] outline bg-[#457b9d] text-white'
+            ? ' bg-[#457b9d] text-white'
             : ''
         } overflow-y-auto scrollbar shrink-0`}
       >
@@ -150,9 +150,9 @@ export default function AnimeCalendar({ animeWatchlist }: CalendarProps) {
           : null}
       </div>
       <div
-        className={`flex flex-col gap-1 w-44 h-48 rounded-lg bg-[#f1faee] shadow p-1 ${
+        className={`flex flex-col gap-1 w-40 lg:w-52 h-44 lg:h-56 rounded-lg bg-[#f1faee] shadow p-1 ${
           day == 6
-            ? 'outline-8 outline-[#457b9d] outline bg-[#457b9d] text-white'
+            ? ' bg-[#457b9d] text-white'
             : ''
         } overflow-y-auto scrollbar shrink-0`}
       >
