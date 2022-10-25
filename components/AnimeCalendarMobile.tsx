@@ -295,7 +295,7 @@ export default function AnimeCalendarMobile({ animeWatchlist }: CalendarProps) {
       rtl={false}
       shouldResetAutoplay
       showDots
-      sliderClass=""
+      sliderClass="react-multi-carousel-track"
       slidesToSlide={1}
       swipeable
     >

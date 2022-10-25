@@ -175,4 +175,7 @@ html {
   background-color: rgba(229, 231, 235, var(--tw-bg-opacity));
 }
 
+.react-multi-carousel-track {
+  border-radius: 15px;
+}
 

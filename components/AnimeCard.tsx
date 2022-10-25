@@ -39,6 +39,8 @@ export default function AnimeCard({
     setWatching(!watching)
   }
 
+  console.log(anime)
+
   return (
     <div
       className={`p-2 flex-3 pb-8 flex  flex-col items-center  min-w-[175px] sm:min-w-[288px] text-white font-['Signika_Negative']`}

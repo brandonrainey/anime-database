@@ -236,7 +236,7 @@ export default function MainContent(props: MainProps) {
             onChange={checkDropdown}
             value={props.dropValue}
           >
-            <option value="Select..." disabled={true}>
+            <option value="Select..." hidden>
               Category...
             </option>
             <option value="Top Anime" className="">
@@ -259,7 +259,7 @@ export default function MainContent(props: MainProps) {
               onChange={checkAcending}
               value={props.acending}
             >
-              <option value="Select..." className="options" disabled={true}>
+              <option value="Select..." className="options" hidden>
                 Sort by...
               </option>
               <option value="Acending">Acending</option>
@@ -272,7 +272,7 @@ export default function MainContent(props: MainProps) {
               onChange={checkSort}
               value={props.sortValue}
             >
-              <option value="Select..." disabled={true}>
+              <option value="Select..." hidden>
                 Sort by...
               </option>
               <option value="Score">Score</option>
