@@ -114,7 +114,7 @@ const Home: NextPage = () => {
     console.log('runs')
   }, [watching])
 
-  console.log(animeList)
+  
 
   return (
     <div ref={topRef} className="bg-[#1d3557]">

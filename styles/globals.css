@@ -84,12 +84,6 @@ select:focus {
   transition: all 500ms cubic-bezier(0, 0.11, 0.35, 2);
 }
 
-.cardNumber {
-  font-weight: 500;
-  font-size: 20px;
-  padding-bottom: 6px;
-}
-
 .scrollbar::-webkit-scrollbar {
   width: 8px;
   height: 12px;
@@ -132,10 +126,6 @@ select:focus {
     padding-top: 6px;
     margin-right: auto;
     padding-right: 0;
-  }
-
-  .displayTitle {
-    order: 2;
   }
 
   .sortBar {

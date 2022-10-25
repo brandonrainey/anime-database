@@ -1,4 +1,4 @@
-import React, { useState, useEffect, ReactHTMLElement, ReactElement } from 'react'
+import React, { useState, useEffect } from 'react'
 import Carousel from 'react-multi-carousel'
 import 'react-multi-carousel/lib/styles.css'
 
@@ -10,16 +10,6 @@ export default function AnimeCalendarMobile({ animeWatchlist }: CalendarProps) {
   const date = new Date()
 
   const day = date.getDay()
-
-  const [trackingAnime, setTrackingAnime] = useState<boolean[]>([
-    false,
-    false,
-    false,
-    false,
-    false,
-    false,
-    false,
-  ])
 
   function sortFunction() {
     const copy = slides

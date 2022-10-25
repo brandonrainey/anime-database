@@ -17,8 +17,6 @@ export default function AnimeCard({
   watching,
   setWatching,
 }: CardProps) {
-  const newTitle = anime.title.replace(/\s+/g, '-').toLowerCase()
-
   function handleClick(e: MouseEvent) {
     //@ts-ignore
     const name = e?.target?.name
@@ -43,7 +41,7 @@ export default function AnimeCard({
     <div
       className={`p-2 flex-3 pb-8 flex  flex-col items-center  min-w-[175px] sm:min-w-[288px] text-white font-['Signika_Negative']`}
     >
-      <div className="cardNumber outlineText">
+      <div className="outlineText pb-4">
         {sortValue === 'Score'
           ? anime.score
           : dropValue === 'Top Anime'

@@ -1,4 +1,3 @@
-import { AnyTxtRecord } from 'dns'
 import React, { useState, useEffect } from 'react'
 
 type PaginationProps = {

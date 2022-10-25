@@ -1,5 +1,4 @@
-import React, { useRef } from 'react'
-import Banner from '../images/banner4.png'
+import React from 'react'
 import AnimeCalendar from './AnimeCalendar'
 import useMediaQuery from '../hooks/useMediaQuery'
 import AnimeCalendarMobile from './AnimeCalendarMobile'
