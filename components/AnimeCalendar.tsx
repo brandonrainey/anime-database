@@ -1,19 +1,22 @@
-import React from 'react'
+import React, {useState} from 'react'
 
 type CalendarProps = {
   animeWatchlist: any
 }
 
 export default function AnimeCalendar({ animeWatchlist }: CalendarProps) {
+  const [currentDate, setCurrentDate] = useState(new Date().getDay())
   const date = new Date()
 
   const day = date.getDay()
+
+  
 
   return (
     <div className="flex flex-nowrap sm:flex-wrap w-full justify-center gap-8 p-2 overflow-auto mt-4">
       <div
         className={`flex flex-col gap-1 w-40 lg:w-52 h-44 lg:h-56  rounded-lg bg-[#f1faee] shadow p-1 ${
-          day == 0
+          currentDate == 0
             ? ' bg-[#457b9d] text-white'
             : ''
         } overflow-y-auto scrollbar shrink-0 ${day != 0 ? '' : ''}`}
@@ -36,7 +39,7 @@ export default function AnimeCalendar({ animeWatchlist }: CalendarProps) {
       </div>
       <div
         className={`flex flex-col gap-1 w-40 lg:w-52 h-44 lg:h-56 rounded-lg bg-[#f1faee] shadow p-1 ${
-          day == 1
+          currentDate == 1
             ? ' bg-[#457b9d] text-white'
             : ''
         } overflow-y-auto scrollbar shrink-0`}
@@ -59,7 +62,7 @@ export default function AnimeCalendar({ animeWatchlist }: CalendarProps) {
       </div>
       <div
         className={`flex flex-col gap-1 w-40 lg:w-52 h-44 lg:h-56 rounded-lg bg-[#f1faee] shadow p-1 ${
-          day == 2
+          currentDate == 2
             ? ' bg-[#457b9d] text-white'
             : ''
         } overflow-y-auto scrollbar shrink-0`}
@@ -82,7 +85,7 @@ export default function AnimeCalendar({ animeWatchlist }: CalendarProps) {
       </div>
       <div
         className={`flex flex-col gap-1 w-40 lg:w-52 h-44 lg:h-56 rounded-lg bg-[#f1faee] shadow p-1 ${
-          day == 3
+          currentDate == 3
             ? ' bg-[#457b9d] text-white'
             : ''
         } overflow-y-auto scrollbar shrink-0`}
@@ -105,7 +108,7 @@ export default function AnimeCalendar({ animeWatchlist }: CalendarProps) {
       </div>
       <div
         className={`flex flex-col gap-1 w-40 lg:w-52 h-44 lg:h-56 rounded-lg bg-[#f1faee] shadow p-1 ${
-          day == 4
+          currentDate == 4
             ? ' bg-[#457b9d] text-white'
             : ''
         } overflow-y-auto scrollbar shrink-0`}
@@ -128,7 +131,7 @@ export default function AnimeCalendar({ animeWatchlist }: CalendarProps) {
       </div>
       <div
         className={`flex flex-col gap-1 w-40 lg:w-52 h-44 lg:h-56 rounded-lg bg-[#f1faee] shadow p-1 ${
-          day == 5
+          currentDate == 5
             ? ' bg-[#457b9d] text-white'
             : ''
         } overflow-y-auto scrollbar shrink-0`}
@@ -151,7 +154,7 @@ export default function AnimeCalendar({ animeWatchlist }: CalendarProps) {
       </div>
       <div
         className={`flex flex-col gap-1 w-40 lg:w-52 h-44 lg:h-56 rounded-lg bg-[#f1faee] shadow p-1 ${
-          day == 6
+          currentDate == 6
             ? ' bg-[#457b9d] text-white'
             : ''
         } overflow-y-auto scrollbar shrink-0`}

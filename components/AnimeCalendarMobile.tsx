@@ -7,6 +7,7 @@ type CalendarProps = {
 }
 
 export default function AnimeCalendarMobile({ animeWatchlist }: CalendarProps) {
+  const [mobileDate, setMobileDate] = useState(new Date().getDay())
   const date = new Date()
 
   const day = date.getDay()
@@ -24,11 +25,10 @@ export default function AnimeCalendarMobile({ animeWatchlist }: CalendarProps) {
   const [slides, setSlides] = useState([
     {
       id: 0,
-      key: 0,
       element: (
         <div
           className={`flex flex-col gap-1 w-full px-16 h-48  bg-[#f1faee] shadow p-1 ${
-            day == 0
+            mobileDate == 0
               ? ' bg-[#457b9d] text-white'
               : ''
           } overflow-y-auto scrollbar shrink-0 `}
@@ -54,11 +54,10 @@ export default function AnimeCalendarMobile({ animeWatchlist }: CalendarProps) {
     },
     {
       id: 1,
-      key: 1,
       element: (
         <div
           className={`flex flex-col gap-1 w-full px-16 h-48  bg-[#f1faee] shadow p-1 ${
-            day == 1
+            mobileDate == 1
               ? ' bg-[#457b9d] text-white'
               : ''
           } overflow-y-auto scrollbar shrink-0 `}
@@ -84,11 +83,10 @@ export default function AnimeCalendarMobile({ animeWatchlist }: CalendarProps) {
     },
     {
       id: 2,
-      key: 2,
       element: (
         <div
           className={`flex flex-col gap-1 w-full px-16 h-48  bg-[#f1faee] shadow p-1 ${
-            day == 2
+            mobileDate == 2
               ? ' bg-[#457b9d] text-white'
               : ''
           } overflow-y-auto scrollbar shrink-0 `}
@@ -114,11 +112,10 @@ export default function AnimeCalendarMobile({ animeWatchlist }: CalendarProps) {
     },
     {
       id: 3,
-      key: 3,
       element: (
         <div
           className={`flex flex-col gap-1 w-full px-16 h-48  bg-[#f1faee] shadow p-1 ${
-            day == 3
+            mobileDate == 3
               ? ' bg-[#457b9d] text-white'
               : ''
           } overflow-y-auto scrollbar shrink-0 `}
@@ -144,11 +141,10 @@ export default function AnimeCalendarMobile({ animeWatchlist }: CalendarProps) {
     },
     {
       id: 4,
-      key: 4,
       element: (
         <div
           className={`flex flex-col gap-1 w-full px-16 h-48  bg-[#f1faee] shadow p-1 ${
-            day == 4
+            mobileDate == 4
               ? ' bg-[#457b9d] text-white'
               : ''
           } overflow-y-auto scrollbar shrink-0 `}
@@ -174,11 +170,10 @@ export default function AnimeCalendarMobile({ animeWatchlist }: CalendarProps) {
     },
     {
       id: 5,
-      key: 5,
       element: (
         <div
           className={`flex flex-col gap-1 w-full px-16 h-48  bg-[#f1faee] shadow p-1 ${
-            day == 5
+            mobileDate == 5
               ? ' bg-[#457b9d] text-white'
               : ''
           } overflow-y-auto scrollbar shrink-0 `}
@@ -204,11 +199,10 @@ export default function AnimeCalendarMobile({ animeWatchlist }: CalendarProps) {
     },
     {
       id: 6,
-      key: 6,
       element: (
         <div
           className={`flex flex-col gap-1 w-full px-16 h-48  bg-[#f1faee] shadow p-1 ${
-            day == 6
+            mobileDate == 6
               ? ' bg-[#457b9d] text-white'
               : ''
           } overflow-y-auto scrollbar shrink-0 `}
