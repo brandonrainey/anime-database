@@ -10,8 +10,6 @@ export default function AnimeCalendar({ animeWatchlist }: CalendarProps) {
 
   const day = date.getDay()
 
-  
-
   return (
     <div className="flex flex-nowrap sm:flex-wrap w-full justify-center gap-8 p-2 overflow-auto mt-4">
       <div

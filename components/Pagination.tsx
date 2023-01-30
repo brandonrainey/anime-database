@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 
 type PaginationProps = {
-  page: any
+  page: number
   setPage: any
   animeList: any
   scrollToTop: any
@@ -15,6 +15,8 @@ export default function Pagination({
 }: PaginationProps) {
   const [disabledPrev, setDisabledPrev] = useState(true)
   const [disabledNext, setDisabledNext] = useState(false)
+
+  console.log(animeList)
 
   const handleClickPrev = () => {
     setPage(page - 1)

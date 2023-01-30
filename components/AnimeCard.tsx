@@ -6,7 +6,7 @@ type CardProps = {
   dropValue: string
   animeWatchlist: string[]
   setAnimeWatchlist: React.Dispatch<React.SetStateAction<any | null>>
-  watching: any
+  watching: boolean
   setWatching: React.Dispatch<React.SetStateAction<boolean | null>>
 }
 

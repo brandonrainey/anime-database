@@ -1,7 +1,7 @@
 import React from 'react'
 
 type loadingProps = {
-  loading: any
+  loading: boolean
 }
 
 export default function LoadingScreen({ loading }: loadingProps) {

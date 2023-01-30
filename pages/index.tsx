@@ -30,7 +30,9 @@ const Home: NextPage = () => {
     setLoading(true)
 
     setDisplayTitle('Top Anime')
+
     setSortValue('Order by...')
+
     await Axios.get(
       `https://api.jikan.moe/v4/top/anime?page=${page}&bypopularity`
     )
@@ -45,9 +47,13 @@ const Home: NextPage = () => {
 
   const getSeasonalAnime = async () => {
     setAnimeList([])
+
     setLoading(true)
+
     setDisplayTitle('Seasonal Anime')
+
     setSortValue('Order by...')
+
     await Axios.get(`https://api.jikan.moe/v4/seasons/now?page=${page}`).then(
       (response) => {
         setAnimeList(response.data.data)
@@ -58,9 +64,13 @@ const Home: NextPage = () => {
 
   const getUpcomingAnime = async () => {
     setAnimeList([])
+
     setLoading(true)
+
     setDisplayTitle('Upcoming Anime')
+
     setSortValue('Order by...')
+
     await Axios.get(
       `https://api.jikan.moe/v4/seasons/upcoming?page=${page}`
     ).then((response) => {
@@ -77,9 +87,13 @@ const Home: NextPage = () => {
 
   const FetchAnime = async (query?: any) => {
     setAnimeList([])
+
     setDropValue(search)
+
     setLoading(true)
+
     setSortValue('Order by...')
+
     await Axios.get(
       `https://api.jikan.moe/v4/anime?q=${query}&order_by=popularity&sort=asc&limit=50&page=${page}&sfw`
     )
@@ -116,13 +130,11 @@ const Home: NextPage = () => {
     console.log('runs')
   }, [watching])
 
-  
-
   return (
     <div ref={topRef} className="bg-[#1d3557]">
       <Head>
         <title>anime database</title>
-        <meta name='description' content='anime database using MAL API'/>
+        <meta name="description" content="anime database using MAL API" />
       </Head>
       <Header animeWatchlist={animeWatchlist} />
       <MainContent

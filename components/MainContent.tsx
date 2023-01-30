@@ -232,7 +232,7 @@ export default function MainContent(props: MainProps) {
         </div>
         <div className="ml-auto mt-auto pr-12 outline-none myCategory">
           <select
-            className="w-40 p-1 rounded shadow font-semibold"
+            className="sm:w-40 w-44 p-1 rounded shadow font-semibold"
             onChange={checkDropdown}
             value={props.dropValue}
           >
@@ -249,7 +249,7 @@ export default function MainContent(props: MainProps) {
       </div>
 
       <div className="flex justify-center items-center flex-col mb-4">
-        <h1 className="flex text-center text-3xl mb-6 w-60 bg-gray-100 rounded-xl h-10 shadow-lg font-semibold  justify-center pt-1  font-['Signika_Negative'] ">
+        <h1 className="flex text-center text-3xl mb-6 sm:w-68 w-72 bg-gray-100 rounded-xl h-10 shadow-lg font-semibold  justify-center pt-1  font-['Signika_Negative'] ">
           {props.displayTitle}
         </h1>
         <div className="flex ml-auto mr-12 sortBar">
