@@ -114,12 +114,7 @@ select:focus {
     background-color: transparent;
     border-bottom: 1px solid rgba(0, 0, 0, 0.5);
   }
-  /* .cardz {
-    width: 100%;
-  } */
-  /* .cardCont {
-    width: 100%;
-  } */
+  
 
   .topContainer {
     flex-direction: column;
@@ -141,7 +136,7 @@ select:focus {
   .searchForm {
     display: flex;
     margin: 0;
-    width: 100vw;
+    width: 100%;
   }
 
   .input-search:focus {
@@ -157,6 +152,10 @@ select:focus {
     padding-right: 0;
     margin-left: 0;
     margin-right: auto;
+  }
+
+  .search-box {
+    width: 100%
   }
 }
 

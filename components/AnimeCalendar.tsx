@@ -17,7 +17,7 @@ export default function AnimeCalendar({ animeWatchlist }: CalendarProps) {
       <div
         className={`flex flex-col gap-1 w-40 lg:w-52 h-44 lg:h-56  rounded-lg bg-[#f1faee] shadow p-1 ${
           currentDate == 0
-            ? ' bg-[#457b9d] text-white'
+            ? ' bg-[#07020f7a] text-white'
             : ''
         } overflow-y-auto scrollbar shrink-0 ${day != 0 ? '' : ''}`}
       >

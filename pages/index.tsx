@@ -108,6 +108,8 @@ const Home: NextPage = () => {
   }, [search])
 
   useEffect(() => {
+    setAnimeWatchlist([Object.entries(localStorage)])
+
     if (typeof window != undefined) {
       setAnimeWatchlist([Object.entries(localStorage)])
     }
