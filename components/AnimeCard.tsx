@@ -39,7 +39,7 @@ export default function AnimeCard({
 
   return (
     <div
-      className={`p-2 flex-3 pb-8 flex  flex-col items-center  min-w-[320px] sm:min-w-[288px] text-white font-['Signika_Negative'] bg-[#07020f7a] rounded-lg`}
+      className={`p-2 flex-3 pb-8 flex  flex-col items-center  min-w-[320px] sm:min-w-[288px] text-white font-['Signika_Negative'] rounded-lg `}
     >
       <div className="outlineText pb-4">
         {sortValue === 'Score'
@@ -55,17 +55,19 @@ export default function AnimeCard({
         rel="noreferrer"
         className=""
       >
-        <figure className="flex justify-center transform duration-200 hover:scale-[1.03] pb-4">
+        <figure className="flex justify-center transform duration-200 pb-4 hover:scale-105">
           <img
             src={anime.images.webp.image_url}
             alt={anime.mal_id}
-            className="rounded-md shadow-xl sm:h-96"
+            className="rounded-md shadow-2xl sm:h-96"
           />
         </figure>
       </a>
 
       <div className=" flex flex-col w-full items-center text-center h-full">
-        <h1 className="font-medium max-w-[288px] outlineText text-lg">{anime.title}</h1>
+        <h1 className="font-medium max-w-[288px] outlineText text-lg">
+          {anime.title}
+        </h1>
         <button
           id={anime.broadcast.day}
           aria-label="add/remove from watchlist button"
@@ -75,7 +77,7 @@ export default function AnimeCard({
               ? () => handleClickRemove(event as MouseEvent)
               : () => handleClick(event as MouseEvent)
           }
-          className="flex text-sm mt-auto"
+          className="flex text-sm mt-auto text-black font-semibold"
         >
           {anime.airing
             ? anime.title in localStorage

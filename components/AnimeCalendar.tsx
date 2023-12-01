@@ -1,22 +1,29 @@
-import React, {useState} from 'react'
+import React, { useState } from 'react'
 
 type CalendarProps = {
   animeWatchlist: any
+  openDropdown: any
 }
 
-export default function AnimeCalendar({ animeWatchlist }: CalendarProps) {
+export default function AnimeCalendar({
+  animeWatchlist,
+  openDropdown,
+}: CalendarProps) {
   const [currentDate, setCurrentDate] = useState(new Date().getDay())
+
   const date = new Date()
 
   const day = date.getDay()
 
   return (
-    <div className="flex flex-nowrap sm:flex-wrap w-full justify-center gap-8 p-2 overflow-auto mt-4">
+    <div
+      className={`flex flex-nowrap sm:flex-wrap w-full justify-center gap-8 p-2 overflow-hidden mt-4  transition-all duration-200 ease-in-out ${
+        openDropdown ? 'max-h-[600px]' : 'max-h-0 invisible'
+      }`}
+    >
       <div
         className={`flex flex-col gap-1 w-40 lg:w-52 h-44 lg:h-56  rounded-lg bg-[#f1faee] shadow p-1 ${
-          currentDate == 0
-            ? ' bg-[#07020f7a] text-white'
-            : ''
+          currentDate == 0 ? ' bg-[#457b9d] text-white' : ''
         } overflow-y-auto scrollbar shrink-0 ${day != 0 ? '' : ''}`}
       >
         <p className="text-center font-bold text-lg">Sunday</p>
@@ -37,9 +44,7 @@ export default function AnimeCalendar({ animeWatchlist }: CalendarProps) {
       </div>
       <div
         className={`flex flex-col gap-1 w-40 lg:w-52 h-44 lg:h-56 rounded-lg bg-[#f1faee] shadow p-1 ${
-          currentDate == 1
-            ? ' bg-[#457b9d] text-white'
-            : ''
+          currentDate == 1 ? ' bg-[#457b9d] text-white' : ''
         } overflow-y-auto scrollbar shrink-0`}
       >
         <p className="text-center font-bold text-lg">Monday</p>
@@ -60,9 +65,7 @@ export default function AnimeCalendar({ animeWatchlist }: CalendarProps) {
       </div>
       <div
         className={`flex flex-col gap-1 w-40 lg:w-52 h-44 lg:h-56 rounded-lg bg-[#f1faee] shadow p-1 ${
-          currentDate == 2
-            ? ' bg-[#457b9d] text-white'
-            : ''
+          currentDate == 2 ? ' bg-[#457b9d] text-white' : ''
         } overflow-y-auto scrollbar shrink-0`}
       >
         <p className="text-center font-bold text-lg">Tuesday</p>
@@ -83,9 +86,7 @@ export default function AnimeCalendar({ animeWatchlist }: CalendarProps) {
       </div>
       <div
         className={`flex flex-col gap-1 w-40 lg:w-52 h-44 lg:h-56 rounded-lg bg-[#f1faee] shadow p-1 ${
-          currentDate == 3
-            ? ' bg-[#457b9d] text-white'
-            : ''
+          currentDate == 3 ? ' bg-[#457b9d] text-white' : ''
         } overflow-y-auto scrollbar shrink-0`}
       >
         <p className="text-center font-bold text-lg">Wednesday</p>
@@ -106,9 +107,7 @@ export default function AnimeCalendar({ animeWatchlist }: CalendarProps) {
       </div>
       <div
         className={`flex flex-col gap-1 w-40 lg:w-52 h-44 lg:h-56 rounded-lg bg-[#f1faee] shadow p-1 ${
-          currentDate == 4
-            ? ' bg-[#457b9d] text-white'
-            : ''
+          currentDate == 4 ? ' bg-[#457b9d] text-white' : ''
         } overflow-y-auto scrollbar shrink-0`}
       >
         <p className="text-center font-bold text-lg">Thursday</p>
@@ -129,9 +128,7 @@ export default function AnimeCalendar({ animeWatchlist }: CalendarProps) {
       </div>
       <div
         className={`flex flex-col gap-1 w-40 lg:w-52 h-44 lg:h-56 rounded-lg bg-[#f1faee] shadow p-1 ${
-          currentDate == 5
-            ? ' bg-[#457b9d] text-white'
-            : ''
+          currentDate == 5 ? ' bg-[#457b9d] text-white' : ''
         } overflow-y-auto scrollbar shrink-0`}
       >
         <p className="text-center font-bold text-lg">Friday</p>
@@ -152,9 +149,7 @@ export default function AnimeCalendar({ animeWatchlist }: CalendarProps) {
       </div>
       <div
         className={`flex flex-col gap-1 w-40 lg:w-52 h-44 lg:h-56 rounded-lg bg-[#f1faee] shadow p-1 ${
-          currentDate == 6
-            ? ' bg-[#457b9d] text-white'
-            : ''
+          currentDate == 6 ? ' bg-[#457b9d] text-white' : ''
         } overflow-y-auto scrollbar shrink-0`}
       >
         <p className="text-center font-bold text-lg">Saturday</p>

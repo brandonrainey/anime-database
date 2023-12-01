@@ -195,7 +195,7 @@ export default function MainContent(props: MainProps) {
   }, [props.search])
 
   return (
-    <div className="bg-[#1d3557]">
+    <div className="bg-[#e8e8e8]">
       <div className="flex mb-12 topContainer">
         <div className="search-box mt-4">
           <form className="mt-6 ml-8 searchForm" onSubmit={props.HandleSearch}>
@@ -288,7 +288,7 @@ export default function MainContent(props: MainProps) {
         <LoadingScreen loading={props.loading} />
 
         <main
-          className={`flex flex-wrap justify-center flex-row w-7/8 cardz gap-8 ${
+          className={`flex flex-wrap justify-center flex-row w-7/8 cardz gap-8 pb-4 ${
             props.loading ? 'hidden' : ''
           }`}
         >

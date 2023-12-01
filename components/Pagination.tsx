@@ -43,7 +43,7 @@ export default function Pagination({
   }, [animeList])
 
   return (
-    <div className="flex justify-center bg-[#1d3557] pb-4 pt-4">
+    <div className="flex justify-center bg-[#284d81] pb-4 pt-4">
       <div className="flex">
         <button
           className="items-center px-2 py-2 rounded-l-md border border-gray-300 bg-white text-sm font-medium text-gray-500 hover:bg-gray-50"

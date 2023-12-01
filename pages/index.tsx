@@ -131,7 +131,7 @@ const Home: NextPage = () => {
   }, [watching])
 
   return (
-    <div ref={topRef} className="bg-[#1d3557]">
+    <div ref={topRef} className="bg-[#e8e8e8]">
       <Head>
         <title>anime database</title>
         <meta name="description" content="anime database using MAL API" />
